@@ -1059,5 +1059,2952 @@ window.addEventListener(
 
     }
 );
+    </script>
+<!-- =========================================
+     PART 3
+     ABOUT + SKILLS
+========================================= -->
+
+<style>
+
+/* =========================================
+   GENERAL SECTION
+========================================= */
+
+.portfolio-section{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:
+    120px 25px;
+
+    position:relative;
+}
+
+.section-heading{
+
+    text-align:center;
+
+    margin-bottom:70px;
+}
+
+.section-heading span{
+
+    color:#00f7ff;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    letter-spacing:4px;
+
+    display:block;
+
+    margin-bottom:15px;
+}
+
+.section-heading h2{
+
+    font-size:
+    clamp(35px,5vw,55px);
+
+    margin:0;
+
+    background:
+    linear-gradient(
+        90deg,
+        #00f7ff,
+        #8b5cf6,
+        #ff2bd6
+    );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
+}
+
+.section-heading p{
+
+    color:#777b96;
+
+    margin-top:15px;
+}
+
+
+/* =========================================
+   ABOUT
+========================================= */
+
+.about-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    .8fr 1.2fr;
+
+    gap:70px;
+
+    align-items:center;
+}
+
+
+/* =========================================
+   ABOUT 3D CARD
+========================================= */
+
+.about-card{
+
+    position:relative;
+
+    min-height:430px;
+
+    border-radius:35px;
+
+    padding:2px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #00f7ff,
+        #8b5cf6,
+        #ff2bd6
+    );
+
+    transform-style:preserve-3d;
+
+    transition:
+    transform .5s ease;
+
+    box-shadow:
+    0 30px 80px
+    rgba(0,0,0,.5);
+}
+
+.about-card-inner{
+
+    height:100%;
+
+    min-height:430px;
+
+    border-radius:33px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #101025,
+        #070711
+    );
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+
+/* =========================================
+   PROFILE CIRCLE
+========================================= */
+
+.profile-circle{
+
+    width:220px;
+
+    height:220px;
+
+    border-radius:50%;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+    radial-gradient(
+        circle,
+        #151535,
+        #060610
+    );
+
+    border:
+    2px solid
+    rgba(0,247,255,.5);
+
+    box-shadow:
+
+    0 0 30px
+    rgba(0,247,255,.25),
+
+    inset 0 0 40px
+    rgba(139,92,246,.2);
+}
+
+.profile-circle::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+
+    height:250px;
+
+    border-radius:50%;
+
+    border:
+    1px solid
+    rgba(0,247,255,.3);
+
+    animation:
+    pulseCircle 3s
+    ease-in-out
+    infinite;
+}
+
+.profile-circle::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+
+    height:280px;
+
+    border-radius:50%;
+
+    border:
+    1px dashed
+    rgba(255,43,214,.25);
+
+    animation:
+    spinCircle 12s
+    linear
+    infinite;
+}
+
+.profile-icon{
+
+    font-size:75px;
+
+    z-index:2;
+
+    filter:
+    drop-shadow(
+        0 0 20px
+        rgba(0,247,255,.6)
+    );
+}
+
+
+/* =========================================
+   ABOUT CONTENT
+========================================= */
+
+.about-content{
+
+    opacity:0;
+
+    transform:
+    translateY(50px);
+
+    transition:
+    1s ease;
+}
+
+.about-content.show{
+
+    opacity:1;
+
+    transform:
+    translateY(0);
+}
+
+.about-content h3{
+
+    font-size:35px;
+
+    margin-bottom:20px;
+}
+
+.about-content h3 span{
+
+    color:#00f7ff;
+}
+
+.about-content p{
+
+    color:#9295ad;
+
+    line-height:1.9;
+
+    margin-bottom:20px;
+}
+
+.about-features{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:15px;
+
+    margin-top:30px;
+}
+
+.feature{
+
+    padding:20px;
+
+    border-radius:18px;
+
+    background:
+    rgba(255,255,255,.04);
+
+    border:
+    1px solid
+    rgba(255,255,255,.08);
+
+    transition:.4s;
+}
+
+.feature:hover{
+
+    transform:
+    translateY(-7px);
+
+    border-color:
+    rgba(0,247,255,.4);
+
+    box-shadow:
+    0 15px 40px
+    rgba(0,247,255,.08);
+}
+
+.feature strong{
+
+    display:block;
+
+    color:#fff;
+
+    margin-bottom:6px;
+}
+
+.feature span{
+
+    color:#777b96;
+
+    font-size:13px;
+}
+
+
+/* =========================================
+   SKILLS
+========================================= */
+
+.skills-container{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:20px;
+}
+
+.skill-box{
+
+    padding:25px;
+
+    border-radius:22px;
+
+    background:
+    rgba(255,255,255,.04);
+
+    border:
+    1px solid
+    rgba(255,255,255,.08);
+
+    backdrop-filter:
+    blur(15px);
+
+    transition:.4s;
+
+    opacity:0;
+
+    transform:
+    translateY(40px);
+}
+
+.skill-box.show{
+
+    opacity:1;
+
+    transform:
+    translateY(0);
+}
+
+.skill-box:hover{
+
+    transform:
+    translateY(-8px);
+
+    border-color:
+    rgba(0,247,255,.3);
+
+    box-shadow:
+    0 20px 50px
+    rgba(0,0,0,.35);
+}
+
+.skill-top{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:15px;
+}
+
+.skill-name{
+
+    font-size:16px;
+
+    font-weight:bold;
+}
+
+.skill-percent{
+
+    color:#00f7ff;
+
+    font-size:14px;
+
+    font-weight:bold;
+}
+
+.skill-bar{
+
+    width:100%;
+
+    height:7px;
+
+    border-radius:20px;
+
+    background:#17172a;
+
+    overflow:hidden;
+}
+
+.skill-progress{
+
+    height:100%;
+
+    width:0;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #00f7ff,
+        #8b5cf6,
+        #ff2bd6
+    );
+
+    box-shadow:
+    0 0 15px
+    rgba(0,247,255,.4);
+
+    transition:
+    width 1.5s
+    cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes pulseCircle{
+
+    0%,100%{
+
+        transform:scale(1);
+
+        opacity:.4;
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+        opacity:.9;
+    }
+}
+
+@keyframes spinCircle{
+
+    from{
+
+        transform:rotate(0deg);
+    }
+
+    to{
+
+        transform:rotate(360deg);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:850px){
+
+    .portfolio-section{
+
+        padding:
+        90px 20px;
+    }
+
+    .about-grid{
+
+        grid-template-columns:1fr;
+
+        gap:50px;
+    }
+
+    .about-card{
+
+        max-width:500px;
+
+        width:100%;
+
+        margin:auto;
+    }
+
+    .skills-container{
+
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .about-features{
+
+        grid-template-columns:1fr;
+    }
+
+    .about-card,
+    .about-card-inner{
+
+        min-height:350px;
+    }
+
+    .profile-circle{
+
+        width:180px;
+
+        height:180px;
+    }
+
+    .profile-icon{
+
+        font-size:60px;
+    }
+
+}
+
+</style>
+
+
+<!-- =========================================
+     ABOUT SECTION
+========================================= -->
+
+<section
+class="portfolio-section"
+id="about">
+
+<div class="section-heading">
+
+<span>WHO I AM</span>
+
+<h2>About Me</h2>
+
+<p>
+A little something about my journey
+</p>
+
+</div>
+
+
+<div class="about-grid">
+
+
+<!-- 3D ABOUT CARD -->
+
+<div
+class="about-card"
+id="aboutCard">
+
+<div class="about-card-inner">
+
+<div class="profile-circle">
+
+<div class="profile-icon">
+👨‍💻
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ABOUT TEXT -->
+
+<div
+class="about-content"
+id="aboutContent">
+
+<h3>
+
+I Build
+<span>Digital Experiences</span>
+
+</h3>
+
+<p>
+
+I'm a passionate web developer who
+loves creating modern, interactive and
+beautiful websites. I focus on clean
+design, smooth animation and great
+user experience.
+
+</p>
+
+<p>
+
+My goal is to combine technology and
+creativity to build websites that don't
+just look good, but also feel amazing
+to use.
+
+</p>
+
+
+<div class="about-features">
+
+
+<div class="feature">
+
+<strong>
+Creative
+</strong>
+
+<span>
+Unique visual ideas
+</span>
+
+</div>
+
+
+<div class="feature">
+
+<strong>
+Responsive
+</strong>
+
+<span>
+Works on every device
+</span>
+
+</div>
+
+
+<div class="feature">
+
+<strong>
+Interactive
+</strong>
+
+<span>
+Smooth user experience
+</span>
+
+</div>
+
+
+<div class="feature">
+
+<strong>
+Modern
+</strong>
+
+<span>
+Latest web technologies
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================
+     SKILLS SECTION
+========================================= -->
+
+<section
+class="portfolio-section"
+id="skills">
+
+<div class="section-heading">
+
+<span>MY EXPERTISE</span>
+
+<h2>My Skills</h2>
+
+<p>
+Technologies I work with
+</p>
+
+</div>
+
+
+<div class="skills-container">
+
+
+<!-- HTML -->
+
+<div
+class="skill-box"
+data-percent="95">
+
+<div class="skill-top">
+
+<span class="skill-name">
+HTML
+</span>
+
+<span class="skill-percent">
+95%
+</span>
+
+</div>
+
+<div class="skill-bar">
+
+<div
+class="skill-progress"
+data-width="95%">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CSS -->
+
+<div
+class="skill-box"
+data-percent="90">
+
+<div class="skill-top">
+
+<span class="skill-name">
+CSS
+</span>
+
+<span class="skill-percent">
+90%
+</span>
+
+</div>
+
+<div class="skill-bar">
+
+<div
+class="skill-progress"
+data-width="90%">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<div
+class="skill-box"
+data-percent="85">
+
+<div class="skill-top">
+
+<span class="skill-name">
+JavaScript
+</span>
+
+<span class="skill-percent">
+85%
+</span>
+
+</div>
+
+<div class="skill-bar">
+
+<div
+class="skill-progress"
+data-width="85%">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- THREE JS -->
+
+<div
+class="skill-box"
+data-percent="80">
+
+<div class="skill-top">
+
+<span class="skill-name">
+Three.js
+</span>
+
+<span class="skill-percent">
+80%
+</span>
+
+</div>
+
+<div class="skill-bar">
+
+<div
+class="skill-progress"
+data-width="80%">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- UI UX -->
+
+<div
+class="skill-box"
+data-percent="88">
+
+<div class="skill-top">
+
+<span class="skill-name">
+UI / UX Design
+</span>
+
+<span class="skill-percent">
+88%
+</span>
+
+</div>
+
+<div class="skill-bar">
+
+<div
+class="skill-progress"
+data-width="88%">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- WORDPRESS / BLOGGER -->
+
+<div
+class="skill-box"
+data-percent="90">
+
+<div class="skill-top">
+
+<span class="skill-name">
+Web Design
+</span>
+
+<span class="skill-percent">
+90%
+</span>
+
+</div>
+
+<div class="skill-bar">
+
+<div
+class="skill-progress"
+data-width="90%">
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     PART 3 JAVASCRIPT
+========================================= -->
+
+<script>
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+
+const revealElements =
+document.querySelectorAll(
+    ".about-content, .skill-box"
+);
+
+
+const revealObserver =
+new IntersectionObserver(
+
+    function(entries){
+
+        entries.forEach(
+            function(entry){
+
+                if(
+                    entry.isIntersecting
+                ){
+
+                    entry.target
+                    .classList
+                    .add("show");
+
+                }
+
+            }
+        );
+
+    },
+
+    {
+        threshold:0.15
+    }
+
+);
+
+
+revealElements.forEach(
+    function(element){
+
+        revealObserver.observe(
+            element
+        );
+
+    }
+);
+
+
+/* =========================================
+   SKILL BAR ANIMATION
+========================================= */
+
+const skillObserver =
+new IntersectionObserver(
+
+    function(entries){
+
+        entries.forEach(
+            function(entry){
+
+                if(
+                    entry.isIntersecting
+                ){
+
+                    const progress =
+                    entry.target.querySelector(
+                        ".skill-progress"
+                    );
+
+                    if(progress){
+
+                        const width =
+                        progress.getAttribute(
+                            "data-width"
+                        );
+
+                        setTimeout(
+                            function(){
+
+                                progress.style.width =
+                                width;
+
+                            },
+                            200
+                        );
+
+                    }
+
+                }
+
+            }
+        );
+
+    },
+
+    {
+        threshold:0.4
+    }
+
+);
+
+
+document
+.querySelectorAll(".skill-box")
+.forEach(
+    function(skill){
+
+        skillObserver.observe(
+            skill
+        );
+
+    }
+);
+
+
+/* =========================================
+   ABOUT CARD 3D TILT
+========================================= */
+
+const aboutCard =
+document.getElementById(
+    "aboutCard"
+);
+
+
+if(aboutCard){
+
+    aboutCard.addEventListener(
+        "mousemove",
+        function(e){
+
+            const rect =
+            aboutCard.getBoundingClientRect();
+
+            const x =
+            e.clientX -
+            rect.left;
+
+            const y =
+            e.clientY -
+            rect.top;
+
+            const centerX =
+            rect.width / 2;
+
+            const centerY =
+            rect.height / 2;
+
+            const rotateX =
+            (y - centerY) / 20;
+
+            const rotateY =
+            (centerX - x) / 20;
+
+            aboutCard.style.transform =
+            "perspective(1000px) " +
+            "rotateX(" +
+            rotateX +
+            "deg) " +
+            "rotateY(" +
+            rotateY +
+            "deg)";
+
+        }
+    );
+
+
+    aboutCard.addEventListener(
+        "mouseleave",
+        function(){
+
+            aboutCard.style.transform =
+            "perspective(1000px) " +
+            "rotateX(0deg) " +
+            "rotateY(0deg)";
+
+        }
+    );
+
+}
 
     </script>
+<!-- =========================================
+     PART 4
+     PROJECTS SECTION
+========================================= -->
+
+<style>
+
+/* =========================================
+   PROJECTS
+========================================= */
+
+.projects-section{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:
+    120px 25px;
+}
+
+
+/* =========================================
+   PROJECT GRID
+========================================= */
+
+.projects-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:25px;
+
+    perspective:1200px;
+}
+
+
+/* =========================================
+   PROJECT CARD
+========================================= */
+
+.project-card{
+
+    position:relative;
+
+    min-height:420px;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    background:#0c0c1c;
+
+    border:
+    1px solid
+    rgba(255,255,255,.1);
+
+    transform-style:preserve-3d;
+
+    transition:
+    transform .15s ease,
+    box-shadow .4s ease,
+    border-color .4s ease;
+
+    opacity:0;
+
+    transform:
+    translateY(60px);
+}
+
+.project-card.show{
+
+    opacity:1;
+
+    transform:
+    translateY(0);
+}
+
+.project-card:hover{
+
+    border-color:
+    rgba(0,247,255,.5);
+
+    box-shadow:
+
+    0 30px 80px
+    rgba(0,0,0,.6),
+
+    0 0 40px
+    rgba(0,247,255,.08);
+}
+
+
+/* =========================================
+   PROJECT IMAGE
+========================================= */
+
+.project-image{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:
+    transform .7s ease;
+
+    opacity:.65;
+}
+
+.project-card:hover
+.project-image{
+
+    transform:scale(1.12);
+
+    opacity:.8;
+}
+
+
+/* =========================================
+   DARK GRADIENT
+========================================= */
+
+.project-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+        to bottom,
+        transparent 15%,
+        rgba(5,5,15,.25) 35%,
+        rgba(5,5,15,.98) 100%
+    );
+
+    z-index:1;
+}
+
+
+/* =========================================
+   PROJECT NUMBER
+========================================= */
+
+.project-number{
+
+    position:absolute;
+
+    top:20px;
+
+    left:20px;
+
+    z-index:3;
+
+    width:45px;
+
+    height:45px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+    rgba(0,0,0,.35);
+
+    border:
+    1px solid
+    rgba(255,255,255,.2);
+
+    color:#00f7ff;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    backdrop-filter:
+    blur(10px);
+}
+
+
+/* =========================================
+   PROJECT CONTENT
+========================================= */
+
+.project-content{
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    padding:28px;
+
+    z-index:3;
+
+    transform:
+    translateZ(40px);
+}
+
+.project-category{
+
+    color:#00f7ff;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    margin-bottom:10px;
+}
+
+.project-content h3{
+
+    font-size:25px;
+
+    margin:
+    0 0 10px;
+}
+
+.project-content p{
+
+    color:#aaaec4;
+
+    line-height:1.6;
+
+    font-size:14px;
+
+    margin-bottom:20px;
+}
+
+
+/* =========================================
+   PROJECT BUTTON
+========================================= */
+
+.project-link{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    padding:
+    10px 16px;
+
+    border-radius:30px;
+
+    background:
+    rgba(255,255,255,.08);
+
+    border:
+    1px solid
+    rgba(255,255,255,.12);
+
+    transition:.3s;
+}
+
+.project-link:hover{
+
+    background:#00f7ff;
+
+    color:#03030b;
+
+    transform:
+    translateX(5px);
+}
+
+
+/* =========================================
+   GLOW ORB
+========================================= */
+
+.project-glow{
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    right:-90px;
+
+    top:-90px;
+
+    background:
+    #00f7ff;
+
+    filter:blur(80px);
+
+    opacity:.12;
+
+    transition:.5s;
+
+    z-index:2;
+}
+
+.project-card:hover
+.project-glow{
+
+    opacity:.3;
+}
+
+
+/* =========================================
+   PROJECT 2 COLOR
+========================================= */
+
+.project-card:nth-child(2)
+.project-glow{
+
+    background:#8b5cf6;
+}
+
+
+/* =========================================
+   PROJECT 3 COLOR
+========================================= */
+
+.project-card:nth-child(3)
+.project-glow{
+
+    background:#ff2bd6;
+}
+
+
+/* =========================================
+   MORE PROJECTS BUTTON
+========================================= */
+
+.projects-more{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-top:50px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:950px){
+
+    .projects-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:650px){
+
+    .projects-section{
+
+        padding:
+        90px 20px;
+    }
+
+    .projects-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .project-card{
+
+        min-height:390px;
+    }
+
+}
+
+</style>
+
+
+<!-- =========================================
+     PROJECTS SECTION
+========================================= -->
+
+<section
+class="projects-section"
+id="projects">
+
+
+<div class="section-heading">
+
+<span>MY RECENT WORK</span>
+
+<h2>Featured Projects</h2>
+
+<p>
+Some of the things I've created
+</p>
+
+</div>
+
+
+<div class="projects-grid">
+
+
+<!-- =====================================
+     PROJECT 01
+===================================== -->
+
+<article
+class="project-card">
+
+<img
+class="project-image"
+src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=85"
+alt="Modern dashboard project">
+
+<div class="project-overlay"></div>
+
+<div class="project-glow"></div>
+
+<div class="project-number">
+01
+</div>
+
+<div class="project-content">
+
+<div class="project-category">
+WEB DEVELOPMENT
+</div>
+
+<h3>
+Modern Dashboard
+</h3>
+
+<p>
+A modern responsive dashboard
+with clean UI, beautiful charts
+and interactive components.
+</p>
+
+<a
+href="#"
+class="project-link">
+
+VIEW PROJECT
+<span>→</span>
+
+</a>
+
+</div>
+
+</article>
+
+
+<!-- =====================================
+     PROJECT 02
+===================================== -->
+
+<article
+class="project-card">
+
+<img
+class="project-image"
+src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1000&q=85"
+alt="Creative UI UX project">
+
+<div class="project-overlay"></div>
+
+<div class="project-glow"></div>
+
+<div class="project-number">
+02
+</div>
+
+<div class="project-content">
+
+<div class="project-category">
+UI / UX DESIGN
+</div>
+
+<h3>
+Creative Interface
+</h3>
+
+<p>
+A premium user interface focused
+on smooth interactions and
+modern visual design.
+</p>
+
+<a
+href="#"
+class="project-link">
+
+VIEW PROJECT
+<span>→</span>
+
+</a>
+
+</div>
+
+</article>
+
+
+<!-- =====================================
+     PROJECT 03
+===================================== -->
+
+<article
+class="project-card">
+
+<img
+class="project-image"
+src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1000&q=85"
+alt="3D web application project">
+
+<div class="project-overlay"></div>
+
+<div class="project-glow"></div>
+
+<div class="project-number">
+03
+</div>
+
+<div class="project-content">
+
+<div class="project-category">
+3D WEB
+</div>
+
+<h3>
+Interactive Experience
+</h3>
+
+<p>
+An immersive web experience
+combining 3D animation,
+particles and interaction.
+</p>
+
+<a
+href="#"
+class="project-link">
+
+VIEW PROJECT
+<span>→</span>
+
+</a>
+
+</div>
+
+</article>
+
+
+</div>
+
+
+<!-- =====================================
+     MORE BUTTON
+===================================== -->
+
+<div class="projects-more">
+
+<a
+href="#contact"
+class="btn btn-primary">
+
+START A PROJECT →
+
+</a>
+
+</div>
+
+
+</section>
+
+
+<!-- =========================================
+     PART 4 JAVASCRIPT
+========================================= -->
+
+<script>
+
+/* =========================================
+   PROJECT SCROLL REVEAL
+========================================= */
+
+const projectCards =
+document.querySelectorAll(
+    ".project-card"
+);
+
+
+const projectObserver =
+new IntersectionObserver(
+
+    function(entries){
+
+        entries.forEach(
+            function(entry){
+
+                if(
+                    entry.isIntersecting
+                ){
+
+                    entry.target
+                    .classList
+                    .add("show");
+
+                }
+
+            }
+        );
+
+    },
+
+    {
+        threshold:0.15
+    }
+
+);
+
+
+projectCards.forEach(
+    function(card){
+
+        projectObserver.observe(
+            card
+        );
+
+    }
+);
+
+
+/* =========================================
+   3D PROJECT CARD TILT
+========================================= */
+
+projectCards.forEach(
+    function(card){
+
+        card.addEventListener(
+            "mousemove",
+            function(event){
+
+                const rect =
+                card.getBoundingClientRect();
+
+                const x =
+                event.clientX -
+                rect.left;
+
+                const y =
+                event.clientY -
+                rect.top;
+
+                const centerX =
+                rect.width / 2;
+
+                const centerY =
+                rect.height / 2;
+
+                const rotateX =
+                (y - centerY) / 18;
+
+                const rotateY =
+                (centerX - x) / 18;
+
+
+                card.style.transform =
+                "perspective(1000px) " +
+                "rotateX(" +
+                rotateX +
+                "deg) " +
+                "rotateY(" +
+                rotateY +
+                "deg) " +
+                "translateY(-8px)";
+
+            }
+        );
+
+
+        card.addEventListener(
+            "mouseleave",
+            function(){
+
+                card.style.transform =
+                "perspective(1000px) " +
+                "rotateX(0deg) " +
+                "rotateY(0deg) " +
+                "translateY(0)";
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================
+   PROJECT BUTTON MAGNETIC EFFECT
+========================================= */
+
+const projectLinks =
+document.querySelectorAll(
+    ".project-link"
+);
+
+
+projectLinks.forEach(
+    function(button){
+
+        button.addEventListener(
+            "mousemove",
+            function(event){
+
+                const rect =
+                button.getBoundingClientRect();
+
+                const x =
+                event.clientX -
+                rect.left -
+                rect.width / 2;
+
+                const y =
+                event.clientY -
+                rect.top -
+                rect.height / 2;
+
+                button.style.transform =
+                "translate(" +
+                x * .15 +
+                "px," +
+                y * .15 +
+                "px)";
+
+            }
+        );
+
+
+        button.addEventListener(
+            "mouseleave",
+            function(){
+
+                button.style.transform =
+                "translate(0,0)";
+
+            }
+        );
+
+    }
+);
+
+</script>
+    <!-- =========================================
+     PART 5
+     CONTACT + FOOTER + FINAL EFFECTS
+========================================= -->
+
+<style>
+
+/* =========================================
+   CONTACT SECTION
+========================================= */
+
+.contact-section{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:
+    120px 25px 80px;
+}
+
+
+/* =========================================
+   CONTACT BOX
+========================================= */
+
+.contact-box{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:
+    70px 40px;
+
+    text-align:center;
+
+    border-radius:35px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(0,247,255,.07),
+        rgba(139,92,246,.08),
+        rgba(255,43,214,.05)
+    );
+
+    border:
+    1px solid
+    rgba(255,255,255,.12);
+
+    box-shadow:
+    0 30px 80px
+    rgba(0,0,0,.35);
+
+    backdrop-filter:
+    blur(20px);
+}
+
+
+/* =========================================
+   CONTACT GLOW
+========================================= */
+
+.contact-box::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+
+    height:350px;
+
+    left:-180px;
+
+    top:-180px;
+
+    border-radius:50%;
+
+    background:#00f7ff;
+
+    filter:blur(100px);
+
+    opacity:.08;
+}
+
+.contact-box::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+
+    height:350px;
+
+    right:-180px;
+
+    bottom:-180px;
+
+    border-radius:50%;
+
+    background:#ff2bd6;
+
+    filter:blur(100px);
+
+    opacity:.08;
+}
+
+
+/* =========================================
+   CONTACT CONTENT
+========================================= */
+
+.contact-content{
+
+    position:relative;
+
+    z-index:2;
+}
+
+.contact-content h3{
+
+    font-size:
+    clamp(30px,5vw,50px);
+
+    margin:
+    0 0 15px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #00f7ff,
+        #8b5cf6,
+        #ff2bd6
+    );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
+}
+
+.contact-content p{
+
+    max-width:650px;
+
+    margin:
+    0 auto 35px;
+
+    color:#9295ad;
+
+    line-height:1.8;
+}
+
+
+/* =========================================
+   CONTACT INFORMATION
+========================================= */
+
+.contact-info{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin-bottom:40px;
+}
+
+.contact-item{
+
+    padding:
+    14px 20px;
+
+    border-radius:15px;
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:
+    1px solid
+    rgba(255,255,255,.08);
+
+    color:#ddd;
+
+    font-size:14px;
+
+    transition:.3s;
+}
+
+.contact-item:hover{
+
+    border-color:
+    rgba(0,247,255,.4);
+
+    transform:
+    translateY(-5px);
+
+    color:#00f7ff;
+}
+
+
+/* =========================================
+   SOCIALS
+========================================= */
+
+.socials{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:14px;
+
+    flex-wrap:wrap;
+
+    margin-top:30px;
+}
+
+.social{
+
+    width:52px;
+
+    height:52px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    font-size:14px;
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:
+    1px solid
+    rgba(255,255,255,.1);
+
+    transition:.4s;
+}
+
+.social:hover{
+
+    color:#02020a;
+
+    background:#00f7ff;
+
+    transform:
+    translateY(-8px)
+    scale(1.08);
+
+    box-shadow:
+    0 10px 30px
+    rgba(0,247,255,.3);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.portfolio-footer{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:
+    35px 25px;
+
+    border-top:
+    1px solid
+    rgba(255,255,255,.08);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+.footer-logo{
+
+    color:#00f7ff;
+
+    font-weight:bold;
+
+    text-decoration:none;
+
+    text-shadow:
+    0 0 15px
+    rgba(0,247,255,.5);
+}
+
+.footer-text{
+
+    color:#62667e;
+
+    font-size:13px;
+}
+
+.back-top{
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:
+    1px solid
+    rgba(255,255,255,.1);
+
+    transition:.3s;
+}
+
+.back-top:hover{
+
+    background:#00f7ff;
+
+    color:#000;
+
+    transform:
+    translateY(-5px);
+}
+
+
+/* =========================================
+   CUSTOM CURSOR
+========================================= */
+
+.cursor-dot{
+
+    position:fixed;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#00f7ff;
+
+    pointer-events:none;
+
+    z-index:99999;
+
+    transform:
+    translate(-50%,-50%);
+
+    box-shadow:
+    0 0 15px
+    #00f7ff;
+}
+
+.cursor-ring{
+
+    position:fixed;
+
+    width:35px;
+
+    height:35px;
+
+    border-radius:50%;
+
+    border:
+    1px solid
+    rgba(0,247,255,.7);
+
+    pointer-events:none;
+
+    z-index:99998;
+
+    transform:
+    translate(-50%,-50%);
+
+    transition:
+    width .2s,
+    height .2s,
+    background .2s;
+}
+
+
+/* =========================================
+   LOADING SCREEN
+========================================= */
+
+.page-loader{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:100000;
+
+    background:#03030b;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:
+    opacity .7s ease,
+    visibility .7s ease;
+}
+
+.page-loader.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+}
+
+.loader-content{
+
+    text-align:center;
+}
+
+.loader-logo{
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    color:#00f7ff;
+
+    letter-spacing:3px;
+
+    margin-bottom:25px;
+
+    text-shadow:
+    0 0 25px
+    rgba(0,247,255,.7);
+}
+
+.loader-line{
+
+    width:180px;
+
+    height:3px;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    background:#17172a;
+
+    margin:auto;
+}
+
+.loader-progress{
+
+    width:0;
+
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        #00f7ff,
+        #8b5cf6,
+        #ff2bd6
+    );
+
+    animation:
+    loading 1.8s
+    ease
+    forwards;
+}
+
+@keyframes loading{
+
+    from{
+        width:0;
+    }
+
+    to{
+        width:100%;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:650px){
+
+    .contact-section{
+
+        padding:
+        90px 20px 60px;
+    }
+
+    .contact-box{
+
+        padding:
+        50px 20px;
+    }
+
+    .contact-item{
+
+        width:100%;
+    }
+
+    .portfolio-footer{
+
+        flex-direction:column;
+
+        text-align:center;
+    }
+
+    .cursor-dot,
+    .cursor-ring{
+
+        display:none;
+    }
+
+}
+
+</style>
+
+
+<!-- =========================================
+     PAGE LOADER
+========================================= -->
+
+<div
+class="page-loader"
+id="pageLoader">
+
+<div class="loader-content">
+
+<div class="loader-logo">
+YOUR NAME
+</div>
+
+<div class="loader-line">
+
+<div
+class="loader-progress">
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================================
+     CONTACT SECTION
+========================================= -->
+
+<section
+class="contact-section"
+id="contact">
+
+
+<div class="section-heading">
+
+<span>GET IN TOUCH</span>
+
+<h2>Let's Work Together</h2>
+
+<p>
+Have an idea? Let's turn it into something amazing.
+</p>
+
+</div>
+
+
+<div class="contact-box">
+
+
+<div class="contact-content">
+
+<h3>
+Have a project in mind?
+</h3>
+
+<p>
+
+I'm always open to discussing new projects,
+creative ideas and opportunities.
+Feel free to contact me.
+
+</p>
+
+
+<div class="contact-info">
+
+
+<div class="contact-item">
+
+📧
+your@email.com
+
+</div>
+
+
+<div class="contact-item">
+
+📱
++880 1234-567890
+
+</div>
+
+
+<div class="contact-item">
+
+📍
+Bangladesh
+
+</div>
+
+
+</div>
+
+
+<a
+href="mailto:your@email.com"
+class="btn btn-primary">
+
+SEND ME A MESSAGE →
+
+</a>
+
+
+<!-- =====================================
+     SOCIAL LINKS
+===================================== -->
+
+<div class="socials">
+
+
+<a
+class="social"
+href="https://facebook.com/"
+target="_blank"
+rel="noopener"
+title="Facebook">
+
+f
+
+</a>
+
+
+<a
+class="social"
+href="https://instagram.com/"
+target="_blank"
+rel="noopener"
+title="Instagram">
+
+◎
+
+</a>
+
+
+<a
+class="social"
+href="https://github.com/"
+target="_blank"
+rel="noopener"
+title="GitHub">
+
+GH
+
+</a>
+
+
+<a
+class="social"
+href="https://linkedin.com/"
+target="_blank"
+rel="noopener"
+title="LinkedIn">
+
+in
+
+</a>
+
+
+<a
+class="social"
+href="https://youtube.com/"
+target="_blank"
+rel="noopener"
+title="YouTube">
+
+▶
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer
+class="portfolio-footer">
+
+
+<a
+href="#home"
+class="footer-logo">
+
+YOUR NAME
+
+</a>
+
+
+<div class="footer-text">
+
+© 2026 YOUR NAME.
+All Rights Reserved.
+
+</div>
+
+
+<a
+href="#home"
+class="back-top"
+title="Back to top">
+
+↑
+
+</a>
+
+
+</footer>
+
+
+<!-- =========================================
+     CUSTOM CURSOR
+========================================= -->
+
+<div
+class="cursor-dot"
+id="cursorDot">
+</div>
+
+<div
+class="cursor-ring"
+id="cursorRing">
+</div>
+
+
+<!-- =========================================
+     PART 5 JAVASCRIPT
+========================================= -->
+
+<script>
+
+/* =========================================
+   PAGE LOADER
+========================================= */
+
+window.addEventListener(
+    "load",
+    function(){
+
+        setTimeout(
+            function(){
+
+                const loader =
+                document.getElementById(
+                    "pageLoader"
+                );
+
+                if(loader){
+
+                    loader.classList.add(
+                        "hide"
+                    );
+
+                }
+
+            },
+            1200
+        );
+
+    }
+);
+
+
+/* =========================================
+   CUSTOM CURSOR
+========================================= */
+
+const cursorDot =
+document.getElementById(
+    "cursorDot"
+);
+
+const cursorRing =
+document.getElementById(
+    "cursorRing"
+);
+
+
+let cursorX = 0;
+
+let cursorY = 0;
+
+let ringX = 0;
+
+let ringY = 0;
+
+
+document.addEventListener(
+    "mousemove",
+    function(event){
+
+        cursorX =
+        event.clientX;
+
+        cursorY =
+        event.clientY;
+
+
+        if(cursorDot){
+
+            cursorDot.style.left =
+            cursorX + "px";
+
+            cursorDot.style.top =
+            cursorY + "px";
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   SMOOTH CURSOR RING
+========================================= */
+
+function animateCursor(){
+
+    ringX +=
+    (cursorX - ringX) *
+    0.15;
+
+    ringY +=
+    (cursorY - ringY) *
+    0.15;
+
+
+    if(cursorRing){
+
+        cursorRing.style.left =
+        ringX + "px";
+
+        cursorRing.style.top =
+        ringY + "px";
+
+    }
+
+
+    requestAnimationFrame(
+        animateCursor
+    );
+
+}
+
+animateCursor();
+
+
+/* =========================================
+   CURSOR HOVER EFFECT
+========================================= */
+
+const hoverElements =
+document.querySelectorAll(
+    "a, button, .project-card, .skill-box"
+);
+
+
+hoverElements.forEach(
+    function(element){
+
+        element.addEventListener(
+            "mouseenter",
+            function(){
+
+                if(cursorRing){
+
+                    cursorRing.style.width =
+                    "55px";
+
+                    cursorRing.style.height =
+                    "55px";
+
+                    cursorRing.style.background =
+                    "rgba(0,247,255,.08)";
+
+                }
+
+            }
+        );
+
+
+        element.addEventListener(
+            "mouseleave",
+            function(){
+
+                if(cursorRing){
+
+                    cursorRing.style.width =
+                    "35px";
+
+                    cursorRing.style.height =
+                    "35px";
+
+                    cursorRing.style.background =
+                    "transparent";
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================
+   MOBILE TOUCH
+========================================= */
+
+document.addEventListener(
+    "touchstart",
+    function(){
+
+        if(cursorDot){
+            cursorDot.style.display =
+            "none";
+        }
+
+        if(cursorRing){
+            cursorRing.style.display =
+            "none";
+        }
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+/* =========================================
+   SMOOTH ANCHOR SCROLL
+========================================= */
+
+document
+.querySelectorAll(
+    'a[href^="#"]'
+)
+.forEach(
+    function(link){
+
+        link.addEventListener(
+            "click",
+            function(event){
+
+                const targetId =
+                this.getAttribute(
+                    "href"
+                );
+
+                if(
+                    targetId &&
+                    targetId !== "#"
+                ){
+
+                    const target =
+                    document.querySelector(
+                        targetId
+                    );
+
+                    if(target){
+
+                        event.preventDefault();
+
+                        target.scrollIntoView({
+                            behavior:"smooth"
+                        });
+
+                    }
+
+                }
+
+            }
+        );
+
+    }
+);
+
+</script>
+</body>
+</html>
