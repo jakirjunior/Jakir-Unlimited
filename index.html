@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My 3D Portfolio</title>
+    <style>
+        body { margin: 0; background: #050510; color: white; font-family: sans-serif; overflow: hidden; }
+        canvas { position: fixed; top: 0; left: 0; z-index: -1; }
+        .hero { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; text-align: center; padding: 20px; }
+        h1 { font-size: 2.5rem; color: #818cf8; margin: 0; text-shadow: 0 0 10px rgba(129,140,248,0.5); }
+        p { font-size: 1.1rem; color: #a5b4fc; }
+    </style>
+    <script src="https://cloudflare.com"></script>
+    <script src="https://cloudflare.com"></script>
+</head>
+<body>
+    <canvas id="webgl"></canvas>
+    <div class="hero">
+        <h1>Hi, I'm Jakir</h1>
+        <p>Touch and drag the screen to rotate the 3D shape!</p>
+    </div>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.z = 3;
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('webgl'), antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        const geometry = new THREE.TorusGeometry(0.7, 0.2, 16, 100);
+        const material = new THREE.MeshNormalMaterial({ wireframe: true });
+        const mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
+        window.addEventListener('touchmove', (e) => {
+            const touch = e.touches[0];
+            const x = (touch.clientX / window.innerWidth) - 0.5;
+            const y = -(touch.clientY / window.innerHeight) + 0.5;
+            gsap.to(mesh.rotation, { duration: 0.8, x: y * 4, y: x * 4 });
+        });
+        function animate() {
+            requestAnimationFrame(animate);
+            mesh.rotation.x += 0.003;
+            mesh.rotation.y += 0.005;
+            renderer.render(scene, camera);
+        }
+        animate();
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>
+
