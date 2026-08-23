@@ -547,14 +547,517 @@ CONTACT ME
 <!-- =========================
      JAVASCRIPT
 ========================= -->
-
 <script>
 
-console.log("Portfolio loaded successfully!");
+/* =========================================
+   PREMIUM 3D PORTFOLIO - PART 2
+========================================= */
 
-</script>
+const canvas = document.getElementById("webgl");
+
+const scene = new THREE.Scene();
+
+const camera = new THREE.PerspectiveCamera(
+    60,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    100
+);
+
+camera.position.z = 4;
 
 
-</body>
+/* =========================================
+   RENDERER
+========================================= */
 
-</html>
+const renderer = new THREE.WebGLRenderer({
+    canvas: canvas,
+    antialias: true,
+    alpha: true
+});
+
+renderer.setPixelRatio(
+    Math.min(window.devicePixelRatio, 2)
+);
+
+renderer.setSize(
+    window.innerWidth,
+    window.innerHeight
+);
+
+
+/* =========================================
+   MAIN 3D OBJECT
+========================================= */
+
+const geometry = new THREE.IcosahedronGeometry(
+    1.35,
+    2
+);
+
+
+/* =========================================
+   MATERIAL
+========================================= */
+
+const material = new THREE.MeshPhysicalMaterial({
+
+    color: 0x7c3aed,
+
+    metalness: 0.8,
+
+    roughness: 0.18,
+
+    transparent: true,
+
+    opacity: 0.92,
+
+    emissive: 0x351070,
+
+    emissiveIntensity: 0.8
+
+});
+
+
+const mainObject = new THREE.Mesh(
+    geometry,
+    material
+);
+
+scene.add(mainObject);
+
+
+/* =========================================
+   WIREFRAME OUTLINE
+========================================= */
+
+const wireGeometry =
+    new THREE.IcosahedronGeometry(
+        1.43,
+        2
+    );
+
+const wireMaterial =
+    new THREE.MeshBasicMaterial({
+
+        color: 0x00f7ff,
+
+        wireframe: true,
+
+        transparent: true,
+
+        opacity: 0.35
+
+    });
+
+const wireObject = new THREE.Mesh(
+    wireGeometry,
+    wireMaterial
+);
+
+scene.add(wireObject);
+
+
+/* =========================================
+   GLOW RING
+========================================= */
+
+const ringGeometry =
+    new THREE.TorusGeometry(
+        1.8,
+        0.025,
+        16,
+        100
+    );
+
+const ringMaterial =
+    new THREE.MeshBasicMaterial({
+
+        color: 0xff2bd6,
+
+        transparent: true,
+
+        opacity: 0.8
+
+    });
+
+const ring = new THREE.Mesh(
+    ringGeometry,
+    ringMaterial
+);
+
+ring.rotation.x = Math.PI / 2;
+
+scene.add(ring);
+
+
+/* =========================================
+   SECOND RING
+========================================= */
+
+const ring2Geometry =
+    new THREE.TorusGeometry(
+        2.05,
+        0.015,
+        16,
+        100
+    );
+
+const ring2Material =
+    new THREE.MeshBasicMaterial({
+
+        color: 0x00f7ff,
+
+        transparent: true,
+
+        opacity: 0.55
+
+    });
+
+const ring2 = new THREE.Mesh(
+    ring2Geometry,
+    ring2Material
+);
+
+ring2.rotation.x =
+    Math.PI / 2.4;
+
+scene.add(ring2);
+
+
+/* =========================================
+   LIGHTS
+========================================= */
+
+const ambientLight =
+    new THREE.AmbientLight(
+        0xffffff,
+        0.7
+    );
+
+scene.add(ambientLight);
+
+
+const cyanLight =
+    new THREE.PointLight(
+        0x00f7ff,
+        5,
+        10
+    );
+
+cyanLight.position.set(
+    3,
+    2,
+    4
+);
+
+scene.add(cyanLight);
+
+
+const purpleLight =
+    new THREE.PointLight(
+        0x8b5cf6,
+        5,
+        10
+    );
+
+purpleLight.position.set(
+    -3,
+    -2,
+    3
+);
+
+scene.add(purpleLight);
+
+
+/* =========================================
+   PARTICLES
+========================================= */
+
+const particleCount = 500;
+
+const particleGeometry =
+    new THREE.BufferGeometry();
+
+const positions =
+    new Float32Array(
+        particleCount * 3
+    );
+
+
+for(
+    let i = 0;
+    i < particleCount;
+    i++
+){
+
+    const radius =
+        3 + Math.random() * 4;
+
+    const theta =
+        Math.random() * Math.PI * 2;
+
+    const phi =
+        Math.acos(
+            2 * Math.random() - 1
+        );
+
+    positions[i * 3] =
+        radius *
+        Math.sin(phi) *
+        Math.cos(theta);
+
+    positions[i * 3 + 1] =
+        radius *
+        Math.sin(phi) *
+        Math.sin(theta);
+
+    positions[i * 3 + 2] =
+        radius *
+        Math.cos(phi);
+
+}
+
+
+particleGeometry.setAttribute(
+    "position",
+    new THREE.BufferAttribute(
+        positions,
+        3
+    )
+);
+
+
+const particleMaterial =
+    new THREE.PointsMaterial({
+
+        color: 0x00f7ff,
+
+        size: 0.025,
+
+        transparent: true,
+
+        opacity: 0.75
+
+    });
+
+
+const particles =
+    new THREE.Points(
+        particleGeometry,
+        particleMaterial
+    );
+
+scene.add(particles);
+
+
+/* =========================================
+   MOUSE CONTROL
+========================================= */
+
+let mouseX = 0;
+
+let mouseY = 0;
+
+let targetX = 0;
+
+let targetY = 0;
+
+
+window.addEventListener(
+    "mousemove",
+    function(event){
+
+        mouseX =
+            (event.clientX /
+            window.innerWidth) -
+            0.5;
+
+        mouseY =
+            (event.clientY /
+            window.innerHeight) -
+            0.5;
+
+    }
+);
+
+
+/* =========================================
+   TOUCH CONTROL
+========================================= */
+
+window.addEventListener(
+    "touchmove",
+    function(event){
+
+        if(
+            event.touches.length > 0
+        ){
+
+            const touch =
+                event.touches[0];
+
+            mouseX =
+                (touch.clientX /
+                window.innerWidth) -
+                0.5;
+
+            mouseY =
+                (touch.clientY /
+                window.innerHeight) -
+                0.5;
+
+        }
+
+    },
+    { passive:true }
+);
+
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+const clock =
+    new THREE.Clock();
+
+
+function animate(){
+
+    requestAnimationFrame(
+        animate
+    );
+
+
+    const time =
+        clock.getElapsedTime();
+
+
+    /* Smooth Mouse Movement */
+
+    targetX +=
+        (mouseX * 0.8 - targetX)
+        * 0.05;
+
+    targetY +=
+        (mouseY * 0.8 - targetY)
+        * 0.05;
+
+
+    /* Main Object */
+
+    mainObject.rotation.x =
+        time * 0.25 -
+        targetY * 0.8;
+
+    mainObject.rotation.y =
+        time * 0.35 +
+        targetX * 0.8;
+
+
+    /* Wireframe */
+
+    wireObject.rotation.x =
+        mainObject.rotation.x;
+
+    wireObject.rotation.y =
+        mainObject.rotation.y;
+
+
+    /* Floating Effect */
+
+    mainObject.position.y =
+        Math.sin(time * 1.2)
+        * 0.12;
+
+
+    wireObject.position.y =
+        mainObject.position.y;
+
+
+    /* Rings */
+
+    ring.rotation.z =
+        time * 0.4;
+
+    ring2.rotation.z =
+        -time * 0.25;
+
+
+    ring.rotation.x =
+        Math.PI / 2 +
+        targetY * 0.5;
+
+    ring2.rotation.y =
+        targetX * 0.5;
+
+
+    /* Particles */
+
+    particles.rotation.y =
+        time * 0.025;
+
+    particles.rotation.x =
+        time * 0.015;
+
+
+    /* Light Movement */
+
+    cyanLight.position.x =
+        Math.sin(time) * 3;
+
+    cyanLight.position.y =
+        Math.cos(time) * 2;
+
+
+    purpleLight.position.x =
+        Math.cos(time) * -3;
+
+    purpleLight.position.y =
+        Math.sin(time) * -2;
+
+
+    renderer.render(
+        scene,
+        camera
+    );
+
+}
+
+
+animate();
+
+
+/* =========================================
+   RESIZE
+========================================= */
+
+window.addEventListener(
+    "resize",
+    function(){
+
+        camera.aspect =
+            window.innerWidth /
+            window.innerHeight;
+
+        camera.updateProjectionMatrix();
+
+
+        renderer.setSize(
+            window.innerWidth,
+            window.innerHeight
+        );
+
+
+        renderer.setPixelRatio(
+            Math.min(
+                window.devicePixelRatio,
+                2
+            )
+        );
+
+    }
+);
+
+    </script>
